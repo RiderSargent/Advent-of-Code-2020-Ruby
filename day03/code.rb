@@ -1,8 +1,22 @@
 def part_1(input)
+  trees_on_path(1, 3, input)
+end
+
+def part_2(input)
+  [
+    trees_on_path(1, 1, input),
+    trees_on_path(1, 3, input),
+    trees_on_path(1, 5, input),
+    trees_on_path(1, 7, input),
+    trees_on_path(2, 1, input)
+  ].reduce(&:*)
+end
+
+def trees_on_path(rise, run, input)
+  input = input.map(&:chars)
+
   row_length = input.first.length
   col_length = input.length
-
-  input = input.map(&:chars)
 
   row = 0
   col = 0
@@ -10,9 +24,9 @@ def part_1(input)
   trees = 0
 
   while row < col_length do
-    trees += 1 if input[row][col] == '#'
-    row += 1
-    col = (col + 3) % row_length
+    trees += 1 if (input[row][col] == '#')
+    row = row + rise
+    col = (col + run) % row_length
   end
 
   trees
