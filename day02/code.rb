@@ -1,4 +1,6 @@
-def part_1(input)
+# frozen_string_literal: true
+
+def part_one(input)
   input.filter do |line|
     /(\d+)-(\d+) (\S): (\S+)/.match(line) do |m|
       l, h, c, s = m.captures
@@ -7,7 +9,7 @@ def part_1(input)
   end.count
 end
 
-def part_2(input)
+def part_two(input)
   input.filter do |line|
     /(\d+)-(\d+) (\S): (\S+)/.match(line) do |m|
       l, h, c, s = m.captures

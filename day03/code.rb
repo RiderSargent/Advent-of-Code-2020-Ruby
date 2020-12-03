@@ -1,8 +1,10 @@
-def part_1(input)
+# frozen_string_literal: true
+
+def part_one(input)
   trees_on_path(1, 3, input)
 end
 
-def part_2(input)
+def part_two(input)
   [
     trees_on_path(1, 1, input),
     trees_on_path(1, 3, input),
@@ -23,9 +25,9 @@ def trees_on_path(rise, run, input)
 
   trees = 0
 
-  while row < col_length do
-    trees += 1 if (input[row][col] == '#')
-    row = row + rise
+  while row < col_length
+    trees += 1 if input[row][col] == '#'
+    row += rise
     col = (col + run) % row_length
   end
 
