@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'code'
 
 def input
@@ -22,5 +23,9 @@ class TestDay < Minitest::Test
 
   def test_part_1
     assert_equal(252724, part_1(input))
+  end
+
+  def test_part_2
+    assert_equal(276912720, part_2(input))
   end
 end
