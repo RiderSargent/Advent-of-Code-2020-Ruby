@@ -31,3 +31,9 @@ def part_one(seats)
   seats.map { |seat| seat_id(seat) }.max
 end
 
+def part_two(seats)
+  taken_seats = seats.map { |seat| seat_id(seat) }
+
+  ((taken_seats.min..taken_seats.max).to_a - taken_seats).first
+end
+
