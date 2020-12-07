@@ -5,13 +5,8 @@ require 'minitest/pride'
 require_relative 'code'
 
 def input
-  path = File.join(File.dirname(__FILE__), 'input')
-
-  input = []
-
-  File.foreach(path, chomp: true) { |line| input << line }
-
-  input
+  file_path = File.join(File.dirname(__FILE__), 'input')
+  File.open(file_path).read.split("\n")
 end
 
 class TestDay < Minitest::Test
