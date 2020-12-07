@@ -1,19 +1,37 @@
 # frozen_string_literal: true
 
+require 'set'
+
 def part_one(input)
+  groups(input).reduce(0) do |group_memo, group|
+    group_memo += group.reduce do |person_memo, person|
+      person_memo.union person
+    end.count
+  end
+end
+
+def part_two(input)
+  groups(input).reduce(0) do |group_memo, group|
+    group_memo += group.reduce do |person_memo, person|
+      person_memo.intersection person
+    end.count
+  end
+end
+
+def groups(input)
   input << ''
-  yes_answers = []
+  group = []
   groups = []
 
   input.each do |line|
     if line.empty?
-      groups << yes_answers.join.chars.uniq.length
-      yes_answers = []
+      groups << group
+      group = []
     else
-      yes_answers << line
+      group << line.chars.to_set
     end
   end
 
-  groups.sum
+  groups
 end
 
