@@ -24,5 +24,13 @@ class TestDay < Minitest::Test
   def test_part_one
     assert_equal(3_789, part_one(input))
   end
+
+  def test_example_two
+    assert_equal(1_068_781, part_two(example_input))
+  end
+
+  def test_part_two
+    assert_equal(667_437_230_788_118, part_two(input))
+  end
 end
 
