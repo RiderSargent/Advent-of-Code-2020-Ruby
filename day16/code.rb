@@ -51,7 +51,7 @@ def part_two(input)
   valid_nearby_tickets =
     nearby_tickets.filter do |ticket_numbers|
       ticket_numbers.all? do |number|
-        rules.any? do |name, ranges|
+        rules.any? do |_name, ranges|
           ranges.any? { |range| range.include? number }
         end
       end
@@ -63,8 +63,11 @@ def part_two(input)
 
   rules.each do |name, ranges|
     rules_with_matching_columns[name] = []
+
     columns.each_with_index do |column, c_index|
-      rules_with_matching_columns[name] << c_index if column.all? { |v| ranges.first.include?(v) || ranges.last.include?(v) }
+      if column.all? { |v| ranges.first.include?(v) || ranges.last.include?(v) }
+        rules_with_matching_columns[name] << c_index
+      end
     end
   end
 
@@ -72,20 +75,20 @@ def part_two(input)
 
   while rules_with_matching_columns.values.any? { |cols| cols.length > 1 }
     rules_with_matching_columns.each do |rule, matching_cols|
-      if matching_cols.length == 1
-        matched_col = matching_cols.first
-        fields[rule] = matched_col
+      next if matching_cols.length != 1
 
-        rules_with_matching_columns.each do |rule, columns|
-          rules_with_matching_columns[rule] = columns.filter { |v| v != matched_col }
-        end
+      matched_col = matching_cols.first
+      fields[rule] = matched_col
+
+      rules_with_matching_columns.each do |r, c|
+        rules_with_matching_columns[r] = c.filter { |v| v != matched_col }
       end
     end
   end
 
   fields
-    .filter { |rule, col| rule.match?("departure") }
+    .filter { |rule, _col| rule.match?('departure') }
     .map { |_, col| col }
-    .reduce(1) { |memo, index| memo *= my_ticket[index] }
+    .reduce(1) { |memo, index| memo * my_ticket[index] }
 end
 
