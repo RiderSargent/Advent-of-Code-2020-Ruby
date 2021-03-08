@@ -5,7 +5,8 @@ def part_one(input)
 end
 
 def process_line(line)
-  while paren_expression?(line)
+  parenthetical_exp = /.*\(.*\).*/
+  while line.match?(parenthetical_exp)
     innermost_exp = /\((?<exp>[^()]+)\)/
 
     line.match(innermost_exp) do |m|
@@ -14,10 +15,6 @@ def process_line(line)
   end
 
   eval_exp(line)
-end
-
-def paren_expression?(line)
-  line.match?(/.*\(.*\).*/)
 end
 
 def eval_exp(exp)
