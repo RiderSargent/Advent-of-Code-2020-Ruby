@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def part_one(input)
-  parse_passports(input).filter { |p| valie_fields? p }.length
+  parse_passports(input).filter { |p| valid_fields? p }.length
 end
 
 def part_two(input)
@@ -27,7 +27,7 @@ def parse_passports(input)
   passports
 end
 
-def valie_fields?(passport)
+def valid_fields?(passport)
   [
     passport.include?('byr:'),
     passport.include?('iyr:'),
