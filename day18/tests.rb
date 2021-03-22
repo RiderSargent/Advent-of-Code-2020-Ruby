@@ -29,7 +29,29 @@ def example_five_input
   [ '5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))' ]
 end
 
-# ((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2 becomes 13632.
+def example_six_input
+  [ '((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2' ]
+end
+
+def example_seven_input
+  example_two_input
+end
+
+def example_eight_input
+  [ '2 * 3 + (4 * 5)' ]
+end
+
+def example_nine_input
+  [ '5 + (8 * 3 + 9 + 3 * 4 * 3)' ]
+end
+
+def example_ten_input
+  [ '5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))' ]
+end
+
+def example_eleven_input
+  [ '((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2' ]
+end
 
 class TestDay < Minitest::Test
   def test_example_one
@@ -52,8 +74,36 @@ class TestDay < Minitest::Test
     assert_equal(12_240, part_one(example_five_input))
   end
 
+  def test_example_six
+    assert_equal(13_632, part_one(example_six_input))
+  end
+
   def test_part_one
     assert_equal(3_348_222_486_398, part_one(input))
+  end
+
+  def test_example_seven
+    assert_equal(51, part_two(example_seven_input))
+  end
+
+  def test_example_eight
+    assert_equal(46, part_two(example_eight_input))
+  end
+
+  def test_example_nine
+    assert_equal(1_445, part_two(example_nine_input))
+  end
+
+  def test_example_ten
+    assert_equal(669_060, part_two(example_ten_input))
+  end
+
+  def test_example_eleven
+    assert_equal(23_340, part_two(example_eleven_input))
+  end
+
+  def test_part_two
+    assert_equal(43_423_343_619_505, part_two(input))
   end
 end
 
