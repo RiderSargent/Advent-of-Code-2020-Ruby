@@ -1,154 +1,154 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative 'code'
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "code"
 
 def input
-  file_path = File.join(File.dirname(__FILE__), 'input')
+  file_path = File.join(File.dirname(__FILE__), "input")
   File.open(file_path).read.split("\n")
 end
 
 def example_input
   [
-    'L.LL.LL.LL',
-    'LLLLLLL.LL',
-    'L.L.L..L..',
-    'LLLL.LL.LL',
-    'L.LL.LL.LL',
-    'L.LLLLL.LL',
-    '..L.L.....',
-    'LLLLLLLLLL',
-    'L.LLLLLL.L',
-    'L.LLLLL.LL'
+    "L.LL.LL.LL",
+    "LLLLLLL.LL",
+    "L.L.L..L..",
+    "LLLL.LL.LL",
+    "L.LL.LL.LL",
+    "L.LLLLL.LL",
+    "..L.L.....",
+    "LLLLLLLLLL",
+    "L.LLLLLL.L",
+    "L.LLLLL.LL"
   ]
 end
 
 def part_one_round_one_expected
   [
-    '#.##.##.##',
-    '#######.##',
-    '#.#.#..#..',
-    '####.##.##',
-    '#.##.##.##',
-    '#.#####.##',
-    '..#.#.....',
-    '##########',
-    '#.######.#',
-    '#.#####.##'
+    "#.##.##.##",
+    "#######.##",
+    "#.#.#..#..",
+    "####.##.##",
+    "#.##.##.##",
+    "#.#####.##",
+    "..#.#.....",
+    "##########",
+    "#.######.#",
+    "#.#####.##"
   ]
 end
 
 def part_one_round_two_expected
   [
-    '#.LL.L#.##',
-    '#LLLLLL.L#',
-    'L.L.L..L..',
-    '#LLL.LL.L#',
-    '#.LL.LL.LL',
-    '#.LLLL#.##',
-    '..L.L.....',
-    '#LLLLLLLL#',
-    '#.LLLLLL.L',
-    '#.#LLLL.##'
+    "#.LL.L#.##",
+    "#LLLLLL.L#",
+    "L.L.L..L..",
+    "#LLL.LL.L#",
+    "#.LL.LL.LL",
+    "#.LLLL#.##",
+    "..L.L.....",
+    "#LLLLLLLL#",
+    "#.LLLLLL.L",
+    "#.#LLLL.##"
   ]
 end
 
 def part_one_round_three_expected
   [
-    '#.##.L#.##',
-    '#L###LL.L#',
-    'L.#.#..#..',
-    '#L##.##.L#',
-    '#.##.LL.LL',
-    '#.###L#.##',
-    '..#.#.....',
-    '#L######L#',
-    '#.LL###L.L',
-    '#.#L###.##'
+    "#.##.L#.##",
+    "#L###LL.L#",
+    "L.#.#..#..",
+    "#L##.##.L#",
+    "#.##.LL.LL",
+    "#.###L#.##",
+    "..#.#.....",
+    "#L######L#",
+    "#.LL###L.L",
+    "#.#L###.##"
   ]
 end
 
 def part_one_round_four_expected
   [
-    '#.#L.L#.##',
-    '#LLL#LL.L#',
-    'L.L.L..#..',
-    '#LLL.##.L#',
-    '#.LL.LL.LL',
-    '#.LL#L#.##',
-    '..L.L.....',
-    '#L#LLLL#L#',
-    '#.LLLLLL.L',
-    '#.#L#L#.##'
+    "#.#L.L#.##",
+    "#LLL#LL.L#",
+    "L.L.L..#..",
+    "#LLL.##.L#",
+    "#.LL.LL.LL",
+    "#.LL#L#.##",
+    "..L.L.....",
+    "#L#LLLL#L#",
+    "#.LLLLLL.L",
+    "#.#L#L#.##"
   ]
 end
 
 def part_one_round_five_expected
   [
-    '#.#L.L#.##',
-    '#LLL#LL.L#',
-    'L.#.L..#..',
-    '#L##.##.L#',
-    '#.#L.LL.LL',
-    '#.#L#L#.##',
-    '..L.L.....',
-    '#L#L##L#L#',
-    '#.LLLLLL.L',
-    '#.#L#L#.##'
+    "#.#L.L#.##",
+    "#LLL#LL.L#",
+    "L.#.L..#..",
+    "#L##.##.L#",
+    "#.#L.LL.LL",
+    "#.#L#L#.##",
+    "..L.L.....",
+    "#L#L##L#L#",
+    "#.LLLLLL.L",
+    "#.#L#L#.##"
   ]
 end
 
 def part_two_round_two_expected
   [
-    '#.LL.LL.L#',
-    '#LLLLLL.LL',
-    'L.L.L..L..',
-    'LLLL.LL.LL',
-    'L.LL.LL.LL',
-    'L.LLLLL.LL',
-    '..L.L.....',
-    'LLLLLLLLL#',
-    '#.LLLLLL.L',
-    '#.LLLLL.L#'
+    "#.LL.LL.L#",
+    "#LLLLLL.LL",
+    "L.L.L..L..",
+    "LLLL.LL.LL",
+    "L.LL.LL.LL",
+    "L.LLLLL.LL",
+    "..L.L.....",
+    "LLLLLLLLL#",
+    "#.LLLLLL.L",
+    "#.LLLLL.L#"
   ]
 end
 
 def visible_from_example_input
   [
-    '.......#.',
-    '...#.....',
-    '.#.......',
-    '.........',
-    '..#L....#',
-    '....#....',
-    '.........',
-    '#........',
-    '...#.....'
+    ".......#.",
+    "...#.....",
+    ".#.......",
+    ".........",
+    "..#L....#",
+    "....#....",
+    ".........",
+    "#........",
+    "...#....."
   ]
 end
 
 def no_visible_seats_example_input
   [
-    '.##.##.',
-    '#.#.#.#',
-    '##...##',
-    '...L...',
-    '##...##',
-    '#.#.#.#',
-    '.##.##.'
+    ".##.##.",
+    "#.#.#.#",
+    "##...##",
+    "...L...",
+    "##...##",
+    "#.#.#.#",
+    ".##.##."
   ]
 end
 
 def only_empty_seats_visible_example_input
   [
-    '#..#..#',
-    '.L.L.L.',
-    '.......',
-    '#L.L.L#',
-    '.......',
-    '.L.L.L.',
-    '#..#..#'
+    "#..#..#",
+    ".L.L.L.",
+    ".......",
+    "#L.L.L#",
+    ".......",
+    ".L.L.L.",
+    "#..#..#"
   ]
 end
 
@@ -217,4 +217,3 @@ class TestDay < Minitest::Test
     assert_equal(2_144, part_two(input))
   end
 end
-

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def part_one(input)
-  last_round = [ '' ]
+  last_round = [""]
   this_round = input
 
   while last_round != this_round
@@ -13,7 +13,7 @@ def part_one(input)
 end
 
 def part_two(input)
-  last_round = [ '' ]
+  last_round = [""]
   this_round = input
 
   while last_round != this_round
@@ -25,7 +25,7 @@ def part_two(input)
 end
 
 def count_seated(seats)
-  seats.map { |row| row.count('#') }.sum
+  seats.map { |row| row.count("#") }.sum
 end
 
 def next_round(seats)
@@ -43,15 +43,15 @@ def next_round(seats)
 
   0.upto(num_rows - 1) do |r|
     0.upto(num_cols - 1) do |c|
-      next if seats[r][c] == '.'
+      next if seats[r][c] == "."
 
-      is_empty = seats[r][c] == 'L'
+      is_empty = seats[r][c] == "L"
       surrounded_by = seated_around(r, c, seats)
 
       if is_empty && surrounded_by.zero?
-        nexts[r][c] = '#'
+        nexts[r][c] = "#"
       elsif !is_empty && surrounded_by > 3
-        nexts[r][c] = 'L'
+        nexts[r][c] = "L"
       end
     end
   end
@@ -62,14 +62,14 @@ end
 def seated_around(r, c, seats)
   result = 0
 
-  result += 1 if in_bounds?(r - 1, c - 1, seats) && seats[r - 1][c - 1] == '#'
-  result += 1 if in_bounds?(r - 1, c, seats) && seats[r - 1][c] == '#'
-  result += 1 if in_bounds?(r - 1, c + 1, seats) && seats[r - 1][c + 1] == '#'
-  result += 1 if in_bounds?(r, c - 1, seats) && seats[r][c - 1] == '#'
-  result += 1 if in_bounds?(r, c + 1, seats) && seats[r][c + 1] == '#'
-  result += 1 if in_bounds?(r + 1, c - 1, seats) && seats[r + 1][c - 1] == '#'
-  result += 1 if in_bounds?(r + 1, c, seats) && seats[r + 1][c] == '#'
-  result += 1 if in_bounds?(r + 1, c + 1, seats) && seats[r + 1][c + 1] == '#'
+  result += 1 if in_bounds?(r - 1, c - 1, seats) && seats[r - 1][c - 1] == "#"
+  result += 1 if in_bounds?(r - 1, c, seats) && seats[r - 1][c] == "#"
+  result += 1 if in_bounds?(r - 1, c + 1, seats) && seats[r - 1][c + 1] == "#"
+  result += 1 if in_bounds?(r, c - 1, seats) && seats[r][c - 1] == "#"
+  result += 1 if in_bounds?(r, c + 1, seats) && seats[r][c + 1] == "#"
+  result += 1 if in_bounds?(r + 1, c - 1, seats) && seats[r + 1][c - 1] == "#"
+  result += 1 if in_bounds?(r + 1, c, seats) && seats[r + 1][c] == "#"
+  result += 1 if in_bounds?(r + 1, c + 1, seats) && seats[r + 1][c + 1] == "#"
 
   result
 end
@@ -89,15 +89,15 @@ def next_round_part_two(seats)
 
   0.upto(num_rows - 1) do |r|
     0.upto(num_cols - 1) do |c|
-      next if seats[r][c] == '.'
+      next if seats[r][c] == "."
 
-      is_empty = seats[r][c] == 'L'
+      is_empty = seats[r][c] == "L"
       visibly_taken = visible_from(r, c, seats)
 
       if is_empty && visibly_taken.zero?
-        nexts[r][c] = '#'
+        nexts[r][c] = "#"
       elsif !is_empty && visibly_taken > 4
-        nexts[r][c] = 'L'
+        nexts[r][c] = "L"
       end
     end
   end
@@ -107,44 +107,44 @@ end
 
 def visible_from(r, c, seats)
   [
-    search('up', r, c, seats),
-    search('up_and_right', r, c, seats),
-    search('right', r, c, seats),
-    search('down_and_right', r, c, seats),
-    search('down', r, c, seats),
-    search('down_and_left', r, c, seats),
-    search('left', r, c, seats),
-    search('up_and_left', r, c, seats)
+    search("up", r, c, seats),
+    search("up_and_right", r, c, seats),
+    search("right", r, c, seats),
+    search("down_and_right", r, c, seats),
+    search("down", r, c, seats),
+    search("down_and_left", r, c, seats),
+    search("left", r, c, seats),
+    search("up_and_left", r, c, seats)
   ].sum
 end
 
 def search(dir, r, c, seats)
   loop do
     case dir
-    when 'up'
+    when "up"
       r -= 1
-    when 'down'
+    when "down"
       r += 1
-    when 'left'
+    when "left"
       c -= 1
-    when 'right'
+    when "right"
       c += 1
-    when 'up_and_right'
+    when "up_and_right"
       r -= 1
       c += 1
-    when 'down_and_right'
+    when "down_and_right"
       r += 1
       c += 1
-    when 'down_and_left'
+    when "down_and_left"
       r += 1
       c -= 1
-    when 'up_and_left'
+    when "up_and_left"
       r -= 1
       c -= 1
     end
 
-    return 0 if !in_bounds?(r, c, seats) || seats[r][c] == 'L'
-    return 1 if seats[r][c] == '#'
+    return 0 if !in_bounds?(r, c, seats) || seats[r][c] == "L"
+    return 1 if seats[r][c] == "#"
   end
   0
 end
@@ -154,8 +154,8 @@ def search_up_and_left(r, c, seats)
     r -= 1
     c -= 1
 
-    return 1 if seats[r][c] == '#'
-    return 0 if seats[r][c] == 'L'
+    return 1 if seats[r][c] == "#"
+    return 0 if seats[r][c] == "L"
   end
   0
 end
@@ -171,4 +171,3 @@ def in_bounds?(r, c, seats)
     c < num_cols
   ].all?
 end
-
