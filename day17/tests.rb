@@ -1,27 +1,27 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative 'code'
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "code"
 
 def input
   [
-    '#...#.#.',
-    '..#.#.##',
-    '..#..#..',
-    '.....###',
-    '...#.#.#',
-    '#.#.##..',
-    '#####...',
-    '.#.#.##.'
+    "#...#.#.",
+    "..#.#.##",
+    "..#..#..",
+    ".....###",
+    "...#.#.#",
+    "#.#.##..",
+    "#####...",
+    ".#.#.##."
   ]
 end
 
 def example_input
   [
-    '.#.',
-    '..#',
-    '###'
+    ".#.",
+    "..#",
+    "###"
   ]
 end
 
@@ -42,4 +42,3 @@ class TestDay < Minitest::Test
     assert_equal(2_224, part_two(input))
   end
 end
-
