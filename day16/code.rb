@@ -7,29 +7,29 @@ def parse(input)
     input_parts
       .first
       .filter { |line| !line.empty? }
-      .map { |line| line.split(': ') }
+      .map { |line| line.split(": ") }
       .map do |name, unparsed_rule|
         [
           name,
           unparsed_rule
-            .split(' or ')
-            .map { |range| range.split('-').map(&:to_i) }
+            .split(" or ")
+            .map { |range| range.split("-").map(&:to_i) }
             .map { |min, max| (min..max) }
         ]
       end
 
   my_ticket =
     input_parts[1][1]
-      .split(',')
+      .split(",")
       .map(&:to_i)
 
   nearby_tickets =
     input_parts
       .last
       .tap(&:shift)
-      .map { |ticket| ticket.split(',').map(&:to_i) }
+      .map { |ticket| ticket.split(",").map(&:to_i) }
 
-  [ rules, my_ticket, nearby_tickets ]
+  [rules, my_ticket, nearby_tickets]
 end
 
 def part_one(input)
@@ -87,8 +87,7 @@ def part_two(input)
   end
 
   fields
-    .filter { |rule, _col| rule.match?('departure') }
+    .filter { |rule, _col| rule.match?("departure") }
     .map { |_, col| col }
     .reduce(1) { |memo, index| memo * my_ticket[index] }
 end
-
