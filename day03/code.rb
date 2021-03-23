@@ -26,11 +26,10 @@ def trees_on_path(rise, run, input)
   trees = 0
 
   while row < col_length
-    trees += 1 if input[row][col] == '#'
+    trees += 1 if input[row][col] == "#"
     row += rise
     col = (col + run) % row_length
   end
 
   trees
 end
-
