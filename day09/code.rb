@@ -36,4 +36,3 @@ end
 def parse(input)
   input.map(&:to_i)
 end
-
