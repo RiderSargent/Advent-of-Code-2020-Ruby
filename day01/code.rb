@@ -11,4 +11,3 @@ def part_two(input)
     return combo.reduce(:*) if combo.reduce(:+) == 2020
   end
 end
-

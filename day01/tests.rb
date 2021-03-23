@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative 'code'
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "code"
 
 def input
-  file_path = File.join(File.dirname(__FILE__), 'input')
+  file_path = File.join(File.dirname(__FILE__), "input")
   File.open(file_path).read.split("\n").map(&:to_i)
 end
 
 def part_one_example_input
-  [ 1721, 979, 366, 299, 675, 1456 ]
+  [1721, 979, 366, 299, 675, 1456]
 end
 
 class TestDay < Minitest::Test
@@ -26,4 +26,3 @@ class TestDay < Minitest::Test
     assert_equal(276_912_720, part_two(input))
   end
 end
-
