@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
 def part_one(input)
-  parse_passports(input).filter { |p| valid_fields? p }.length
+  parse_passports(input).count { |p| valid_fields? p }
 end
 
 def part_two(input)
-  parse_passports(input).filter { |p| valid_values? p }.length
+  parse_passports(input).count { |p| valid_values? p }
 end
 
 private
 
 def parse_passports(input)
-  input << ''
+  input << ""
   passport = []
   passports = []
 
   input.each do |line|
     if line.empty?
-      passports << passport.join(' ')
+      passports << passport.join(" ")
       passport = []
     else
       passport << line
@@ -29,13 +29,13 @@ end
 
 def valid_fields?(passport)
   [
-    passport.include?('byr:'),
-    passport.include?('iyr:'),
-    passport.include?('eyr:'),
-    passport.include?('hgt:'),
-    passport.include?('hcl:'),
-    passport.include?('ecl:'),
-    passport.include?('pid:')
+    passport.include?("byr:"),
+    passport.include?("iyr:"),
+    passport.include?("eyr:"),
+    passport.include?("hgt:"),
+    passport.include?("hcl:"),
+    passport.include?("ecl:"),
+    passport.include?("pid:")
   ].all?
 end
 
@@ -73,9 +73,9 @@ def valid_height?(passport)
   !!passport.match(/hgt:(\S+)/) do |v|
     h, units = v[1].match(/(\d+)(in|cm)/)&.values_at(1, 2)
     case units
-    when 'cm'
+    when "cm"
       h.to_i >= 150 && h.to_i <= 193
-    when 'in'
+    when "in"
       h.to_i >= 59 && h.to_i <= 76
     end
   end
@@ -96,4 +96,3 @@ def valid_passport_id?(passport)
     v[1].length == 9
   end
 end
-
