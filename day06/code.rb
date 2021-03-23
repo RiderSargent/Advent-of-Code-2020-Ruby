@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'set'
+require "set"
 
 def part_one(input)
   groups(input).reduce(0) do |group_memo, group|
-    group_memo += group.reduce do |person_memo, person|
+    group_memo + group.reduce do |person_memo, person|
       person_memo.union person
     end.count
   end
@@ -12,14 +12,14 @@ end
 
 def part_two(input)
   groups(input).reduce(0) do |group_memo, group|
-    group_memo += group.reduce do |person_memo, person|
+    group_memo + group.reduce do |person_memo, person|
       person_memo.intersection person
     end.count
   end
 end
 
 def groups(input)
-  input << ''
+  input << ""
   group = []
   groups = []
 
@@ -34,4 +34,3 @@ def groups(input)
 
   groups
 end
-
