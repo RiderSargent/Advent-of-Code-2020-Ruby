@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def part_one(input)
-  mask = ''
+  mask = ""
   mem = {}
 
   input.map do |line|
@@ -21,7 +21,7 @@ def part_one(input)
 end
 
 def part_two(input)
-  mask = ''
+  mask = ""
   mem = {}
 
   input.each do |line|
@@ -44,7 +44,7 @@ end
 
 def decode_addresses(address, mask)
   address = to_bin(address)
-  x_count = mask.count('X')
+  x_count = mask.count("X")
 
   masked_address = apply_mask_to_address(mask, address)
 
@@ -53,23 +53,22 @@ def decode_addresses(address, mask)
   end
 
   x_combinations.map do |combo|
-    masked_address.gsub('X', '%s') % combo.split('')
+    masked_address.gsub("X", "%s") % combo.split("")
   end
 end
 
 def apply_mask_to_address(mask, address)
-  mask.chars.zip(address.chars).map { |m, a| m == '0' ? a : m }.join
+  mask.chars.zip(address.chars).map { |m, a| m == "0" ? a : m }.join
 end
 
 def apply_mask(mask, value)
   b_value = to_bin(value)
   (0...36).each do |i|
-    b_value[i] = mask[i] unless mask[i] == 'X'
+    b_value[i] = mask[i] unless mask[i] == "X"
   end
   b_value.to_i(2)
 end
 
 def to_bin(n, length = 36)
-  n.to_i.to_s(2).rjust(length, '0')
+  n.to_i.to_s(2).rjust(length, "0")
 end
-
