@@ -22,12 +22,12 @@ def replace_nth(nth, program)
     new_op = line.first.gsub(/nop|jmp/) do |op|
       n += 1
       if n == nth
-        op == 'nop' ? 'jmp' : 'nop'
+        op == "nop" ? "jmp" : "nop"
       else
         op
       end
     end
-    [ new_op, line.last ]
+    [new_op, line.last]
   end
 end
 
@@ -37,23 +37,23 @@ def run_program(program)
 
   pointer = 0
   while pointer < program.length
-    return [ -1, acc ] if visited.include? pointer
+    return [-1, acc] if visited.include? pointer
 
     visited << pointer
     instruction, parameter = program[pointer]
 
     case instruction
-    when 'acc'
+    when "acc"
       acc += parameter
       pointer += 1
-    when 'jmp'
+    when "jmp"
       pointer += parameter
-    when 'nop'
+    when "nop"
       pointer += 1
     end
   end
 
-  [ 0, acc ]
+  [0, acc]
 end
 
 def parse(input)
@@ -61,9 +61,8 @@ def parse(input)
 
   input.each do |line|
     instruction, parameter = line.split
-    program << [ instruction, parameter.to_i ]
+    program << [instruction, parameter.to_i]
   end
 
   program
 end
-
