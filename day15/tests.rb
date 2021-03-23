@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative 'code'
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "code"
 
 def input
-  [ 1, 20, 8, 12, 0, 14 ]
+  [1, 20, 8, 12, 0, 14]
 end
 
 def example_one_input
-  [ 0, 3, 6 ]
+  [0, 3, 6]
 end
 
 class TestDay < Minitest::Test
@@ -29,4 +29,3 @@ class TestDay < Minitest::Test
     assert_equal(63_644, part_two(input))
   end
 end
-

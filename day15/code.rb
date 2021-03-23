@@ -18,14 +18,13 @@ def nth_number(input, target)
   end
 
   (input.size..target).each do |i|
-    next_number = nil
     prev_position = prev_positions[prev_number]
 
     next_number = prev_position.nil? ? 0 : i - prev_position
     prev_positions[prev_number] = i
 
     return prev_number if i == target
+
     prev_number = next_number
   end
 end
-
