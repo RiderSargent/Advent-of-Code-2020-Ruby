@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative 'code'
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "code"
 
 def input
-  file_path = File.join(File.dirname(__FILE__), 'input')
+  file_path = File.join(File.dirname(__FILE__), "input")
   File.open(file_path).read.split("\n")
 end
 
 def example_input
   [
-    '1-3 a: abcde',
-    '1-3 b: cdefg',
-    '2-9 c: ccccccccc'
+    "1-3 a: abcde",
+    "1-3 b: cdefg",
+    "2-9 c: ccccccccc"
   ]
 end
 
@@ -34,4 +34,3 @@ class TestDay < Minitest::Test
     assert_equal(325, part_two(input))
   end
 end
-
