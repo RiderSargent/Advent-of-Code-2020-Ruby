@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-ruby '2.7.2'
+source "https://rubygems.org"
+
+ruby "2.7.2"
 
 group :default do
-  gem 'pry-byebug'
-  gem 'rubocop'
+  gem "pry-byebug"
+  gem "rubocop"
+  gem "standard"
 end
-
