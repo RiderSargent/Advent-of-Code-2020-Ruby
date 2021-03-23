@@ -32,17 +32,16 @@ def part_two(input)
 end
 
 def parse_times_and_offsets(input)
-  bus_ids = input.last.split(',')
+  bus_ids = input.last.split(",")
 
   buses = []
   bus_ids.each_with_index do |bus_id, i|
-    if bus_id != 'x'
+    if bus_id != "x"
       bus_id = bus_id.to_i
       offset = i
     end
-    buses << [ bus_id, offset ]
+    buses << [bus_id, offset]
   end
 
-  buses.filter { |pair| pair.first != 'x' }
+  buses.filter { |pair| pair.first != "x" }
 end
-
