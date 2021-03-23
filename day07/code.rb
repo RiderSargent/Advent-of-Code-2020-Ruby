@@ -5,7 +5,7 @@ def part_one(input)
 
   input.each { |line| graph.parse(line) }
 
-  graph.find_ancestors('shiny gold')
+  graph.find_ancestors("shiny gold")
 end
 
 def part_two(input)
@@ -13,7 +13,7 @@ def part_two(input)
 
   input.each { |line| graph.parse(line) }
 
-  graph.find_descendants('shiny gold')
+  graph.find_descendants("shiny gold")
 end
 
 class Graph
@@ -25,8 +25,8 @@ class Graph
   end
 
   def parse(line)
-    parent_color, children = line.split(' bags contain ')
-    children = children.split(', ')
+    parent_color, children = line.split(" bags contain ")
+    children = children.split(", ")
 
     add_vertex(parent_color)
 
@@ -106,4 +106,3 @@ class Vertex
     @weights = []
   end
 end
-
