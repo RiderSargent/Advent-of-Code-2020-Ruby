@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative 'code'
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "code"
 
 def input
-  file_path = File.join(File.dirname(__FILE__), 'input')
+  file_path = File.join(File.dirname(__FILE__), "input")
   File.open(file_path).read.split("\n")
 end
 
 def example_input
   [
-    'F10',
-    'N3',
-    'F7',
-    'R90',
-    'F11'
+    "F10",
+    "N3",
+    "F7",
+    "R90",
+    "F11"
   ]
 end
 
@@ -36,4 +36,3 @@ class TestDay < Minitest::Test
     assert_equal(39_140, part_two(input))
   end
 end
-

@@ -25,19 +25,19 @@ class Ferry
       action, value = direction
 
       case action
-      when 'N'
+      when "N"
         @row += value
-      when 'E'
+      when "E"
         @col += value
-      when 'S'
+      when "S"
         @row -= value
-      when 'W'
+      when "W"
         @col -= value
-      when 'L'
+      when "L"
         @dir = ((dir + 360) - value) % 360
-      when 'R'
+      when "R"
         @dir = ((dir + 360) + value) % 360
-      when 'F'
+      when "F"
         case dir
         when 0
           @row += value
@@ -59,15 +59,15 @@ class Ferry
       action, value = direction
 
       case action
-      when 'N'
+      when "N"
         @waypoint_row += value
-      when 'E'
+      when "E"
         @waypoint_col += value
-      when 'S'
+      when "S"
         @waypoint_row -= value
-      when 'W'
+      when "W"
         @waypoint_col -= value
-      when 'L'
+      when "L"
         (value / 90).times do
           row_diff = waypoint_row - row
           col_diff = waypoint_col - col
@@ -75,7 +75,7 @@ class Ferry
           @waypoint_row = row + col_diff
           @waypoint_col = col - row_diff
         end
-      when 'R'
+      when "R"
         (value / 90).times do
           row_diff = waypoint_row - row
           col_diff = waypoint_col - col
@@ -83,7 +83,7 @@ class Ferry
           @waypoint_row = row - col_diff
           @waypoint_col = col + row_diff
         end
-      when 'F'
+      when "F"
         value.times do
           row_diff = waypoint_row - row
           col_diff = waypoint_col - col
@@ -108,8 +108,7 @@ class Ferry
     input.map do |line|
       action = line[0]
       value = line[1..].to_i
-      [ action, value ]
+      [action, value]
     end
   end
 end
-
