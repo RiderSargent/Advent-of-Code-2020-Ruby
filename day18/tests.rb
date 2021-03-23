@@ -1,36 +1,36 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative 'code'
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "code"
 
 def input
-  file_path = File.join(File.dirname(__FILE__), 'input')
+  file_path = File.join(File.dirname(__FILE__), "input")
   File.open(file_path).read.split("\n")
 end
 
 def example_one_input
-  [ '1 + 2 * 3 + 4 * 5 + 6' ]
+  ["1 + 2 * 3 + 4 * 5 + 6"]
 end
 
 def example_two_input
-  [ '1 + (2 * 3) + (4 * (5 + 6))' ]
+  ["1 + (2 * 3) + (4 * (5 + 6))"]
 end
 
 def example_three_input
-  [ '2 * 3 + (4 * 5)' ]
+  ["2 * 3 + (4 * 5)"]
 end
 
 def example_four_input
-  [ '5 + (8 * 3 + 9 + 3 * 4 * 3)' ]
+  ["5 + (8 * 3 + 9 + 3 * 4 * 3)"]
 end
 
 def example_five_input
-  [ '5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))' ]
+  ["5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))"]
 end
 
 def example_six_input
-  [ '((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2' ]
+  ["((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2"]
 end
 
 def example_seven_input
@@ -38,19 +38,19 @@ def example_seven_input
 end
 
 def example_eight_input
-  [ '2 * 3 + (4 * 5)' ]
+  ["2 * 3 + (4 * 5)"]
 end
 
 def example_nine_input
-  [ '5 + (8 * 3 + 9 + 3 * 4 * 3)' ]
+  ["5 + (8 * 3 + 9 + 3 * 4 * 3)"]
 end
 
 def example_ten_input
-  [ '5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))' ]
+  ["5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))"]
 end
 
 def example_eleven_input
-  [ '((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2' ]
+  ["((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2"]
 end
 
 class TestDay < Minitest::Test
@@ -106,4 +106,3 @@ class TestDay < Minitest::Test
     assert_equal(43_423_343_619_505, part_two(input))
   end
 end
-

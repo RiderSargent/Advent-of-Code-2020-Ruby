@@ -41,7 +41,7 @@ def process_line_two(line)
 end
 
 def eval_add_then_mult(exp)
-  [ '+', '*' ].reduce(exp) { |memo, op| evaluate_operation(memo, op) }
+  ["+", "*"].reduce(exp) { |memo, op| evaluate_operation(memo, op) }
 end
 
 def evaluate_operation(exp, operator)
@@ -58,6 +58,5 @@ def evaluate_operation(exp, operator)
     tokens[i] = nil
   end
 
-  tokens.compact.join(' ')
+  tokens.compact.join(" ")
 end
-
