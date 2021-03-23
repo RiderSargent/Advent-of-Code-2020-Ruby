@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 def split(seat)
-  row = seat.chars.first(7)
-  col = seat.chars.last(3)
+  row = seat[0...7].chars
+  col = seat[-3..].chars
 
-  [ row, col ]
+  [row, col]
 end
 
 def parse_row(dirs, initial_group)
@@ -36,4 +36,3 @@ def part_two(seats)
 
   ((taken_seats.min..taken_seats.max).to_a - taken_seats).first
 end
-
